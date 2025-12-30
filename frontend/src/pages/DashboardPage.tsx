@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { appointmentAPI } from '../services/api';
-import { Appointment, MedicalField } from '../types';
+import { useAuth } from '../context/AuthContext.tsx';
+import { appointmentAPI } from '../services/api.ts';
+import type { Appointment, MedicalField } from '../types/index.ts';
 
 const DashboardPage: React.FC = () => {
   const { user, logout } = useAuth();

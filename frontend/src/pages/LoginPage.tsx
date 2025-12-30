@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authAPI } from '../services/api';
-import { useAuth } from '../context/AuthContext';
+import { authAPI } from '../services/api.ts';
+import { useAuth } from '../context/AuthContext.tsx';
 
 const LoginPage: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState('');

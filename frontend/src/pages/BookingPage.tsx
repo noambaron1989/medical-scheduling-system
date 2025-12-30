@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { appointmentAPI } from '../services/api';
-import { MedicalField, Doctor, TimeSlot } from '../types';
+import { appointmentAPI } from '../services/api.ts';
+import type { MedicalField, Doctor, TimeSlot } from '../types/index.ts';
 
 type BookingStep = 'field' | 'doctor' | 'time' | 'confirm';
 
@@ -83,7 +83,8 @@ const BookingPage: React.FC = () => {
 
   const handleDateChange = (date: string) => {
     setSelectedDate(date);
-    if (selectedDoctor) {
+    setSelectedSlot(null);
+    if (selectedDoctor && date) {
       loadTimeSlots(selectedDoctor.id, date);
     }
   };
@@ -255,7 +256,7 @@ const BookingPage: React.FC = () => {
                         <div className="flex items-center mt-2">
                           <span className="text-yellow-500">★</span>
                           <span className="text-sm text-gray-700 ml-1">
-                            {doctor.rating.toFixed(1)}
+                            {Number(doctor.rating).toFixed(1)}
                           </span>
                         </div>
                       </div>

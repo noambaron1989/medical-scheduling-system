@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { User, MedicalField, Doctor, TimeSlot, Appointment } from '../types';
+import type { User, MedicalField, Doctor, TimeSlot, Appointment } from '../types/index.ts';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
