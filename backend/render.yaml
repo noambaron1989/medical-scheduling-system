@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: medical-scheduling-backend
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: medical-scheduling-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://your-frontend-url.vercel.app
+
+databases:
+  - name: medical-scheduling-db
+    databaseName: medical_scheduling
+    user: medical_user
