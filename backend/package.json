@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "npm install --include=dev && tsc",
+    "build": "npm install --include=dev && tsc && mkdir -p dist/db && cp src/db/schema.sql dist/db/",
     "start": "node dist/server.js",
     "seed": "tsx src/scripts/seed.ts"
   },
